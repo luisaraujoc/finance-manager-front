@@ -91,3 +91,13 @@ body{
     color: #ffffff;
     background-color: #757cff;
 }
+
+.alerta {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.bi {
+    font-size: 1rem;
+}

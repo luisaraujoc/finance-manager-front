@@ -1,6 +1,30 @@
 {
+  "name": "finance-manager",
+  "version": "1.0.0",
+  "description": "Um gerenciador de finanças pessoais para projeto de web.",
+  "main": "./index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/finance-manager/"
+  },
+  "keywords": [
+    "finanÃ§as",
+    "nodejs",
+    "gerenciador",
+    "manager",
+    "finance",
+    "web",
+    "app",
+    "nodeapp"
+  ],
+  "author": "Luí­s Couto, Daniel Andrade, Enzzo Hosaki, Gabriel Asafe",
+  "license": "MIT",
   "dependencies": {
     "bootstrap": "^5.3.3",
-    "bootstrap-icons": "^1.11.3"
+    "bootstrap-icons": "^1.11.3",
+    "finance-manager": "file:"
   }
 }
