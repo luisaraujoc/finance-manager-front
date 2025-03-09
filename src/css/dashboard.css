@@ -93,3 +93,9 @@ body {
 .card{
   margin-bottom: 1rem;
 }
+
+.card-add {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
