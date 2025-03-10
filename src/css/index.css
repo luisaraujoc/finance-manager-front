@@ -118,7 +118,7 @@ nav ul li a:hover{
 
 .banner div h1{
     font-weight: 700;
-    color: #757cff;
+    color: #3f46c4;
     font-size: 5rem;
 }
 
@@ -131,3 +131,74 @@ nav ul li a:hover{
 
 /*===============================================================*/
 /*Seção de conteúdo*/
+
+.main {
+    width: 100%;
+}
+
+.main-content{
+    height: 100%;
+    width: 70%;
+    margin: 0 auto;
+    padding: 2rem 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*===============================================================*/
+/*Rodapé*/
+
+footer{
+    background-color: #757cff;
+}
+
+.footer-content{
+    height: 100%;
+    width: 70%;
+    padding-top: 1rem;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-content div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.footer-content p{
+    color: white;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+}
+
+.footer-links{
+    display: flex;
+    justify-content: space-between;
+    align-content: flex-start;
+}
+
+.footer-content h3{
+    color: white;
+    font-weight: 700;
+}
+
+.footer-content ul{
+    padding: 0;
+}
+
+.footer-content li{
+    list-style: none;
+    margin-top: 0.8rem;
+}
+
+.footer-content li a{
+    text-decoration: none;
+    color: white;
+}
