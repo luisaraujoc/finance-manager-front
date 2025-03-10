@@ -118,7 +118,7 @@ nav ul li a:hover{
 
 .banner div h1{
     font-weight: 700;
-    color: #3f46c4;
+    color: #757cff;
     font-size: 5rem;
 }
 
@@ -134,17 +134,39 @@ nav ul li a:hover{
 
 .main {
     width: 100%;
+    background-color: #ececff;
+
 }
 
 .main-content{
     height: 100%;
-    width: 70%;
+    width: 60%;
     margin: 0 auto;
     padding: 2rem 0;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.main-content-left{
+    width: 50%;
+}
+
+.main-content-right{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.main-content-right img{
+    height: 20rem;
+    width: 20rem;
+    border-radius: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
 }
 
 /*===============================================================*/
