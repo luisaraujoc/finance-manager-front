@@ -20,55 +20,74 @@
         <link rel="stylesheet" href="src/css/dashboard.css">
     </head>
 
-    <body>
-        <aside class="sidebar">
-            <div class="sidebar-top">
-                <h1>
-                    LOGO
-                </h1>
-                <div>
-                    <i class="bi bi-person-circle"></i>
-                    <span>Nome do usuário</span>
-                </div>
-                <ul>
-                    <li><a href="#"><i class="bi bi-house-door"></i>
-                            Home</a></li>
-                    <li><a href="#"><i class="bi bi-currency-dollar"></i>
-                            Transações</a></li>
-                    <li><a href="#"><i class="bi bi-graph-up-arrow"></i>
-                            Relatórios</a></li>
-                </ul>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-top">
+            <h1>
+                LOGO
+            </h1>
+            <div>
+                <i class="bi bi-person-circle"></i>
+                <span>Nome do usuário</span>
             </div>
-            <div class="sidebar-bottom">
-                <ul>
-                    <li><a href="#"><i class="bi bi-gear"></i>
-                            Configurações</a></li>
-                </ul>
-                <button class="btn">Sair</button>
+            <ul>
+              <li><a href="#"><i class="bi bi-house-door"></i> Home</a></li>
+              <li><a href="#"><i class="bi bi-currency-dollar"></i> Transações</a></li>
+              <li><a href="#"><i class="bi bi-graph-up-arrow"></i> Relatórios</a></li>
+            </ul>
+        </div>
+        <div class="sidebar-bottom">
+            <ul>
+                <li><a href="#"><i class="bi bi-gear"></i> Configurações</a></li>
+            </ul>
+            <button class="btn btn-logout"><i class="bi bi-box-arrow-left"></i></button>
+            
+        </div>
+    </aside>
+    <main class="container">
+        <div class="card">
+            <div class="card-header">Saldo Atual</div>
+            <div class="card-body">
+                <p class="card-text" id="balance-p">R$1,234.56</p>
             </div>
-        </aside>
-        <main class="container">
-            <h1>Painel Principal</h1>
-            <p>Bem-vindo ao seu gerenciador financeiro!</p>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Saldo Atual</h5>
-                    <p class="card-text">R$<span id="saldo">1.000,00</span></p>
-                </div>
+            <div class="card-footer">
+                <button class="btn btn-primary">Ver detalhes</button>
             </div>
-            <div class="card">
-                <div class="card-header card-add"><span>Transações
-                        Recentes</span><button class="btn btn-success"
-                        id="adicionarMovimentacao">Adicionar</button></div>
+        </div>
+        <div class="card">
+            <div class="card-body" id="transaction-form">
+                <h5 class="card-title">Insira uma nova transação:</h5>
+                <input type="text" class="form-control" placeholder="(R$) Valor">
+                <select name="" id="" class="form-select">
+                    <option value="receita">Receita</option>
+                    <option value="despesa">Despesa</option>
+                </select>
+                <select name="" id="" class="form-select">
+                    <option value="supermercado">Supermercado</option>
+                    <option value="salario">Salário</option>
+                    <option value="aluguel">Aluguel</option>
+                    <option value="lazer">Lazer</option>
+                    <option value="outros">Outros</option>
+                </select>
+            </div>
+        </div>
+         <div class="card">
+                <div class="card-header">Transações Recentes</div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group id="movimentacoes">
+                    <li class="list-group-item">
+                        <i class="bi bi-arrow-up-circle-fill text-danger"></i> Despesa: Supermercado - R$150.00
                     </li>
-                    <li class="list-group-item btn">
-                        <button class="btn">
-                            <a href="#" class="text-decoration-none">
-                                Ver todas as transações
-                            </a>
-                        </button>
+                    <li class="list-group-item">
+                        <i class="bi bi-arrow-down-circle-fill text-success"></i> Receita: Salário - R$2,000.00
+                    </li>
+                    <li class="list-group-item">
+                        <i class="bi bi-arrow-down-circle-fill text-success"></i> Receita: Salário - R$2,000.00
+                    </li>
+                    <li class="list-group-item">
+                        <i class="bi bi-arrow-down-circle-fill text-success"></i> Receita: Salário - R$2,000.00
+                    </li>
+                    <li class="list-group-item">
+                        <i class="bi bi-arrow-down-circle-fill text-success"></i> Receita: Salário - R$2,000.00
                     </li>
                 </ul>
             </div>

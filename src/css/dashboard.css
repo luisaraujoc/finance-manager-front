@@ -94,8 +94,26 @@ body {
   margin-bottom: 1rem;
 }
 
-.card-add {
+#balance-p{
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+#transaction-form{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+}
+#transaction-form h5{
+    width: 30%;
+    margin-top: 0.4rem;
+}
+
+#transaction-form input{
+    width: 50%;
+}
+
+#transaction-form select{
+    width: 20%;
+
 }
