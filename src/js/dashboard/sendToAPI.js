@@ -1,70 +1,12 @@
-listaCategorias = [];
-
-// trazer categorias e ids
-fetch(
-  "http://localhost:3000/categorias/1" /* + localStorage.getItem("idUsuario")*/
-)
-  .then((response) => response.json())
-  .then((data) => {
-    const select = document.getElementById("input-categoria");
-    data.forEach((categoria) => {
-      const option = document.createElement("option");
-      option.value = categoria.id;
-      option.textContent = categoria.nome;
-      select.appendChild(option);
-
-      listaCategorias.push({
-        id: categoria.id,
-        nome: categoria.nome,
-      });
-
-      console.log(listaCategorias);
-    });
-  })
-  .catch((error) => {
-    console.error("Erro ao buscar categorias:", error);
-  });
-
-// trazer movimentações
-fetch(
-  "http://localhost:3000/movimentacoes/1" /* + localStorage.getItem("idUsuario")*/
-)
-  .then((response) => response.json())
-  .then((data) => {
-    const table = document.getElementById("tableMovimentacoes");
-    data.forEach((movimentacao) => {
-      const row = table.insertRow(-1);
-
-      categoriaNome = listaCategorias.find(
-        (categoria) => categoria.id === movimentacao.categoria_id
-      ).nome;
-
-      row.innerHTML = `
-                <td>${movimentacao.id}</td>
-                <td>${movimentacao.valor}</td>
-                <td>${movimentacao.data}</td>
-                <td>${categoriaNome}</td>
-                <td>${movimentacao.descricao}</td>
-                <td>
-                <button class="btn btn-danger" onclick="deletarMovimentacao(${movimentacao.id})">
-                    Deletar
-                </button>
-                </td>
-            `;
-    });
-  })
-  .catch((error) => {
-    console.error("Erro ao buscar movimentações:", error);
-  });
-
 // Obtém o modal pelo ID
 var modal = new bootstrap.Modal(document.getElementById("modal"));
 
 // Obtém o botão que abre o modal
 var btn = document.getElementById("adicionarMovimentacao");
 
-// Adiciona um evento de clique no botão para abrir o modal
 btn.addEventListener("click", function () {
+  const title = document.getElementById("modal-title");
+  title.textContent = "Adicionar Movimentação";
   modal.show();
 });
 
@@ -83,21 +25,21 @@ form.addEventListener("submit", (e) => {
 
   const validacao = validarCampos(inputs);
 
-  if (!validacao.status) {
+  if (validacao.status == false) {
     mostrarToast(validacao.mensagem, "warning");
     return;
   } else {
-    fetch("http://localhost:3000/movimentacoes", {
+    fetch("http://localhost:3000/movimentacoes/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        usuario_id: user.id,
+        categoria_id: inputs.categoria.value,
         valor: inputs.valor.value,
         data: inputs.data.value,
-        categoria_id: inputs.categoria.value,
         descricao: inputs.descricao.value,
-        usuario_id: localStorage.getItem("idUsuario"),
       }),
     })
       .then((response) => response.json())
@@ -112,7 +54,7 @@ form.addEventListener("submit", (e) => {
         }
       })
       .catch((error) => {
-        console.error("Erro ao cadastrar:", error);
+        console.log("Erro ao cadastrar:", error);
         mostrarToast("Ocorreu um erro no cadastro!", "danger");
       });
   }
@@ -184,3 +126,95 @@ function mostrarToast(mensagem, tipo = "info") {
     toast.remove();
   });
 }
+
+/* ----------------------------------------------------- */
+// editar movimentação
+
+modalEdit = document.getElementById("modalEdit");
+
+document.addEventListener("click", function (event) {
+  if (event.target.classList.contains("btn-editar")) {
+    const tr = event.target.closest("tr"); // Pega a linha da tabela associada ao botão clicado
+    const id = tr.children[0].textContent;
+    const data = tr.children[1].textContent;
+    const descricao = tr.children[2].textContent;
+    const categoria = tr.children[3].textContent;
+    const valor = tr.children[4].textContent
+      .replace("R$ ", "")
+      .replace(",", ".");
+
+    // Seleciona os inputs do modal
+    const inputs = {
+      valor: document.getElementById("edit-valor"),
+      descricao: document.getElementById("edit-descricao"),
+      categoria: document.getElementById("edit-categoria"),
+      data: document.getElementById("edit-data"),
+    };
+
+    // Preenche os valores nos campos do modal
+    inputs.valor.value = valor;
+    inputs.descricao.value = descricao;
+    inputs.data.value = formatarDataParaInput(data);
+
+    listaCategorias.forEach((categoria) => {
+      const option = document.createElement("option");
+      option.value = categoria.id;
+      option.textContent = categoria.nome;
+      inputs.categoria.appendChild(option);
+    });
+
+    // Altera o título do modal para "Editar Movimentação"
+    document.getElementById("modal-title").textContent = "Editar Movimentação";
+
+    // Exibe o modal
+    var modalEdit = new bootstrap.Modal(document.getElementById("modalEdit"));
+    modalEdit.show();
+  }
+});
+
+// Função para converter data de "dd/mm/yyyy" para "yyyy-mm-dd" (formato do input date)
+function formatarDataParaInput(data) {
+  const partes = data.split("/");
+  return `${partes[2]}-${partes[1]}-${partes[0]}`;
+}
+
+const submitEdit = document.getElementById("submitEdit");
+
+submitEdit.addEventListener("click", async function () {
+  await fetch(`http://localhost:3000/movimentacoes/${movimentacao.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      // valor, data, categoria_id, descricao, usuario_id
+      valor: inputs.valor.value,
+      data: inputs.data.value,
+      categoria_id: inputs.categoria.value,
+      descricao: inputs.descricao.value,
+      usuario_id: user.id,
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.status === "success") {
+        mostrarToast("Movimentação editada com sucesso!", "success");
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
+      } else {
+        mostrarToast(data.message, "danger");
+      }
+    })
+    .catch((error) => {
+      console.log("Erro ao editar:", error);
+      mostrarToast("Ocorreu um erro na edição!", "danger");
+    });
+});
+
+// ver mais
+const loadMore = document.getElementById("loadMore");
+loadMore.addEventListener("click", function () {
+  window.location.href =
+    "http://localhost/finance-manager-front/transacoes.html";
+});

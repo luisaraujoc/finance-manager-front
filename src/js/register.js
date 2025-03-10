@@ -7,7 +7,7 @@
       register();
     });
   } else {
-    console.error("Elemento #register-form não encontrado.");
+    console.log("Elemento #register-form não encontrado.");
   }
 });
 
@@ -50,7 +50,7 @@ function register() {
       }
     })
     .catch((error) => {
-      console.error("Erro ao cadastrar:", error);
+      console.log("Erro ao cadastrar:", error);
       mostrarToast("Ocorreu um erro no cadastro!", "danger");
     });
 }
