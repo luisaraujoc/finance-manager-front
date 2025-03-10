@@ -90,8 +90,14 @@ body {
     overflow-y: auto; /* Adiciona scroll vertical se o conteúdo for maior que a tela */
 }
 
+#show-details{
+    background-color: #757cff;
+}
+
 .card{
   margin-bottom: 1rem;
+  border-color: #757cff;
+  border-width: 0.13rem;
 }
 
 .card-add {
@@ -110,6 +116,12 @@ body {
     flex-direction: row;
     gap: 1rem;
 }
+
+#transaction-form i{
+    color: #757cff;
+    font-size: 1.5rem;
+}
+
 #transaction-form h5{
     width: 30%;
     margin-top: 0.4rem;
