@@ -56,15 +56,14 @@ body {
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 1rem;
     color: white;
     padding: 10px;
 }
 
-.sidebar-top h1{
-    padding: 10px;
-    font-size: 1.8rem;
-    font-weight: 900;
+.sidebar-top img{
+    padding: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .sidebar-bottom{

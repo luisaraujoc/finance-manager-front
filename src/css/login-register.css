@@ -18,7 +18,7 @@ body {
 /*Login*/
 
 .background {
-    height: 100vh;
+    height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -27,7 +27,7 @@ body {
 }
 
 .login-container {
-    height: 50rem;
+    height: 80%;
     min-width: 30rem;
     width: 80%;
     max-width: 100rem;
@@ -52,9 +52,8 @@ body {
 }
 
 .cropped {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+    height: 50%;
+    width: 50%;
     border-radius: 10px 0 0 10px;
 }
 

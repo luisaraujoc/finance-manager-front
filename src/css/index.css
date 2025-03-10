@@ -32,9 +32,17 @@ header{
     align-items: center;
 }
 
+.header-content-left img{
+    height: 2rem;
+}
+
 .header-content-left h1{
     font-weight: 800;
     color: #fff;
+
+    display: flex;
+    align-items: center;
+
 }
 
 .header-content-right{
