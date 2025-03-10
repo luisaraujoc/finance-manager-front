@@ -71,26 +71,22 @@
                 </select>
             </div>
         </div>
-         <div class="card">
-                <div class="card-header">Transações Recentes</div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <i class="bi bi-arrow-up-circle-fill text-danger"></i> Despesa: Supermercado - R$150.00
-                    </li>
-                    <li class="list-group-item">
-                        <i class="bi bi-arrow-down-circle-fill text-success"></i> Receita: Salário - R$2,000.00
-                    </li>
-                    <li class="list-group-item">
-                        <i class="bi bi-arrow-down-circle-fill text-success"></i> Receita: Salário - R$2,000.00
-                    </li>
-                    <li class="list-group-item">
-                        <i class="bi bi-arrow-down-circle-fill text-success"></i> Receita: Salário - R$2,000.00
-                    </li>
-                    <li class="list-group-item">
-                        <i class="bi bi-arrow-down-circle-fill text-success"></i> Receita: Salário - R$2,000.00
-                    </li>
-                </ul>
-            </div>
+        <div class="card">
+            <div class="card-header card-add"><span>Transações
+                    Recentes</span><button class="btn btn-success"
+                    id="adicionarMovimentacao">Adicionar</button></div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group id="movimentacoes">
+                </li>
+                <li class="list-group-item btn">
+                    <button class="btn">
+                        <a href="#" class="text-decoration-none">
+                            Ver todas as transações
+                        </a>
+                    </button>
+                </li>
+            </ul>
+        </div>
         </main>
 
         <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modal"

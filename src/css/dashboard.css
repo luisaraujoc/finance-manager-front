@@ -94,6 +94,12 @@ body {
   margin-bottom: 1rem;
 }
 
+.card-add {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 #balance-p{
     font-size: 2rem;
     font-weight: 800;
