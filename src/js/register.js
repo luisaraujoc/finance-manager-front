@@ -22,7 +22,7 @@ function register() {
   const validacao = validarCampos(inputs);
 
   if (!validacao.status) {
-    mostrarAlerta(validacao.mensagem, "alert-danger");
+    mostrarToast(validacao.mensagem, "warning");
     return;
   }
 
@@ -40,17 +40,17 @@ function register() {
     .then((response) => response.json())
     .then((data) => {
       if (data.status === "success") {
-        mostrarAlerta("Cadastro realizado com sucesso!", "alert-success");
+        mostrarToast("Cadastro realizado com sucesso!", "success");
         setTimeout(() => {
           window.location.href = "login.html";
         }, 2000);
       } else {
-        mostrarAlerta(data.message, "alert-danger");
+        mostrarToast(data.message, "danger");
       }
     })
     .catch((error) => {
       console.error("Erro ao cadastrar:", error);
-      mostrarAlerta("Ocorreu um erro no cadastro!", "alert-danger");
+      mostrarToast("Ocorreu um erro no cadastro!", "danger");
     });
 }
 
@@ -65,19 +65,10 @@ function validarCampos({ nome, email, senha, confirmaSenha }) {
 
   const regrasSenha = [
     { regex: /.{6,}/, mensagem: "A senha deve ter pelo menos 6 caracteres!" },
-    {
-      regex: /[a-z]/,
-      mensagem: "A senha deve ter pelo menos uma letra minúscula!",
-    },
-    {
-      regex: /[A-Z]/,
-      mensagem: "A senha deve ter pelo menos uma letra maiúscula!",
-    },
+    { regex: /[a-z]/, mensagem: "A senha deve ter pelo menos uma letra minúscula!" },
+    { regex: /[A-Z]/, mensagem: "A senha deve ter pelo menos uma letra maiúscula!" },
     { regex: /[0-9]/, mensagem: "A senha deve ter pelo menos um número!" },
-    {
-      regex: /[^a-zA-Z0-9]/,
-      mensagem: "A senha deve ter pelo menos um caracter especial!",
-    },
+    { regex: /[^a-zA-Z0-9]/, mensagem: "A senha deve ter pelo menos um caracter especial!" },
   ];
 
   for (const regra of regrasSenha) {
@@ -89,11 +80,46 @@ function validarCampos({ nome, email, senha, confirmaSenha }) {
   return { status: true };
 }
 
-function mostrarAlerta(mensagem, tipo) {
-  const alert = document.getElementsByClassName("alert")[0];
-  const alertMessage = document.getElementById("alert-message");
+// Nova função para exibir Toasts
+function mostrarToast(mensagem, tipo = "info") {
+  const toastContainer = document.getElementById("toast-container");
 
-  alertMessage.innerText = mensagem;
-  alert.classList.remove("d-none");
-  alert.classList.add(tipo);
+  // Criando elementos do Toast
+  const toast = document.createElement("div");
+  toast.classList.add("toast", "align-items-center", `bg-${tipo}`, "text-white", "border-0");
+  toast.setAttribute("role", "alert");
+  toast.setAttribute("aria-live", "assertive");
+  toast.setAttribute("aria-atomic", "true");
+  toast.setAttribute("data-bs-autohide", "true");
+  toast.setAttribute("data-bs-delay", "4000"); // Exibe por 4 segundos
+
+  const toastBody = document.createElement("div");
+  toastBody.classList.add("toast-body");
+  toastBody.textContent = mensagem;
+
+  // Botão de fechar o Toast
+  const closeButton = document.createElement("button");
+  closeButton.classList.add("btn-close", "btn-close-white", "me-2", "m-auto");
+  closeButton.setAttribute("type", "button");
+  closeButton.setAttribute("data-bs-dismiss", "toast");
+  closeButton.setAttribute("aria-label", "Fechar");
+
+  const toastHeader = document.createElement("div");
+  toastHeader.classList.add("d-flex", "justify-content-between", "align-items-center", "p-2");
+
+  toastHeader.appendChild(toastBody);
+  toastHeader.appendChild(closeButton);
+  toast.appendChild(toastHeader);
+
+  // Adicionando ao container de toasts
+  toastContainer.appendChild(toast);
+
+  // Inicializando o Toast via Bootstrap
+  const toastBootstrap = new bootstrap.Toast(toast);
+  toastBootstrap.show();
+
+  // Remover o Toast do DOM após sua exibição
+  toast.addEventListener("hidden.bs.toast", () => {
+    toast.remove();
+  });
 }
