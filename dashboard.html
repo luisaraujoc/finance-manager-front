@@ -21,17 +21,18 @@
     </head>
 
 <body>
+    <i class="bi bi-list mobile-menu-toggle" id="icone-do-menu"></i>
     <aside class="sidebar">
         <div class="sidebar-top">
-            <img src="src/img/logo-nome.svg" alt="">
-            <div>
+            <img src="src/img/logo-nome.svg" alt="Logo">
+            <div class="user-info">
                 <i class="bi bi-person-circle"></i>
                 <span>Nome do usuário</span>
             </div>
-            <ul>
-              <li><a href="#"><i class="bi bi-house-door"></i> Home</a></li>
-              <li><a href="#"><i class="bi bi-currency-dollar"></i> Transações</a></li>
-              <li><a href="#"><i class="bi bi-graph-up-arrow"></i> Relatórios</a></li>
+            <ul class="main-menu">
+                <li><a href="#"><i class="bi bi-house-door"></i> Home</a></li>
+                <li><a href="#"><i class="bi bi-currency-dollar"></i> Transações</a></li>
+                <li><a href="#"><i class="bi bi-graph-up-arrow"></i> Relatórios</a></li>
             </ul>
         </div>
         <div class="sidebar-bottom">
@@ -39,7 +40,6 @@
                 <li><a href="#"><i class="bi bi-gear"></i> Configurações</a></li>
             </ul>
             <button class="btn btn-logout"><i class="bi bi-box-arrow-left"></i></button>
-            
         </div>
     </aside>
     <main class="container">
@@ -143,6 +143,26 @@
                 integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
                 crossorigin="anonymous"></script>
             <script src="src/js/dashboard.js"></script>
+            
+            <script>
+                // Toggle do menu mobile
+                const menuToggle = document.createElement('i');
+                menuToggle.className = 'bi bi-list mobile-menu-toggle';
+                document.body.prepend(menuToggle);
+            
+                const sidebar = document.querySelector('.sidebar');
+                
+                menuToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('active');
+                });
+            
+                // Fechar menu ao clicar fora
+                document.addEventListener('click', (e) => {
+                    if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+                        sidebar.classList.remove('active');
+                    }
+                });
+            </script>
         </body>
 
     </html>
