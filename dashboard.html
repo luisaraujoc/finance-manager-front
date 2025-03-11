@@ -34,7 +34,8 @@
                     <span id="username"></span>
                 </div>
                 <ul>
-                    <li><a href="./dashboard.html"><i class="bi bi-house-door"></i>
+                    <li><a href="./dashboard.html"><i
+                                class="bi bi-house-door"></i>
                             Home</a></li>
                     <li><a href="./transacoes.html"><i
                                 class="bi bi-currency-dollar"></i>
@@ -179,48 +180,56 @@
 
         </main>
 
-        <!-- Modal de add -->
+        <!-- Modal de adição -->
         <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modal"
             aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="modal-title"></h5>
+                        <h5 class="modal-title">Adicionar Movimentação</h5>
                         <button type="button" class="btn-close"
                             data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form id="addBud">
+                            <!-- Campo Valor -->
                             <div class="mb-3">
                                 <label for="input-valor"
                                     class="form-label">Valor</label>
                                 <input type="number" class="form-control"
-                                    id="input-valor">
+                                    id="input-valor" required>
                             </div>
+
+                            <!-- Campo Descrição -->
                             <div class="mb-3">
                                 <label for="input-descricao"
                                     class="form-label">Descrição</label>
                                 <input type="text" class="form-control"
-                                    id="input-descricao">
+                                    id="input-descricao" required>
                             </div>
+
+                            <!-- Campo Categoria -->
                             <div class="mb-3">
                                 <label for="input-categoria"
                                     class="form-label">Categoria</label>
                                 <select class="form-select" id="input-categoria"
-                                    aria-label="Default select example">
-                                    <option disabled selected>selecione uma
+                                    required>
+                                    <option disabled selected>Selecione uma
                                         categoria</option>
                                 </select>
                             </div>
+
+                            <!-- Campo Data -->
                             <div class="mb-3">
                                 <label for="input-data"
                                     class="form-label">Data</label>
                                 <input type="date" class="form-control"
-                                    id="input-data">
+                                    id="input-data" required>
                             </div>
 
-                            <button type="submit" class="btn btn-primary"
-                                id="submitAdd">Adicionar</button>
+                            <!-- Botões -->
+                            <button type="submit"
+                                class="btn btn-primary">Adicionar</button>
                             <button type="button" class="btn btn-outline-danger"
                                 data-bs-dismiss="modal">Cancelar</button>
                         </form>
@@ -228,9 +237,9 @@
                 </div>
             </div>
 
+            <!-- Container para toasts -->
             <div id="toast-container"
-                class="toast-container position-fixed top-0 end-0 p-3">
-            </div>
+                class="toast-container position-fixed top-0 end-0 p-3"></div>
         </div>
 
         <!-- Modal de edição -->
@@ -284,6 +293,10 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Container para toasts -->
+            <div id="toast-container"
+                class="toast-container position-fixed top-0 end-0 p-3"></div>
         </div>
 
         <script src="src/js/loged.js"></script>
