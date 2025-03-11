@@ -17,6 +17,13 @@ body {
 
 /*===============================================================*/
 /* Sidebar */
+
+#icone-do-menu{
+    cursor: pointer;
+    color: #000000;
+    font-size: 2.5rem;
+}
+
 .sidebar {
     width: 15rem;
     background-color: #757cff;
@@ -56,15 +63,14 @@ body {
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 1rem;
     color: white;
     padding: 10px;
 }
 
-.sidebar-top h1{
-    padding: 10px;
-    font-size: 1.8rem;
-    font-weight: 900;
+.sidebar-top img{
+    padding: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .sidebar-bottom{
@@ -90,8 +96,14 @@ body {
     overflow-y: auto; /* Adiciona scroll vertical se o conteúdo for maior que a tela */
 }
 
+#show-details{
+    background-color: #757cff;
+}
+
 .card{
   margin-bottom: 1rem;
+  border-color: #757cff;
+  border-width: 0.13rem;
 }
 
 .card-add {
@@ -110,6 +122,12 @@ body {
     flex-direction: row;
     gap: 1rem;
 }
+
+#transaction-form i{
+    color: #757cff;
+    font-size: 1.5rem;
+}
+
 #transaction-form h5{
     width: 30%;
     margin-top: 0.4rem;
@@ -122,4 +140,121 @@ body {
 #transaction-form select{
     width: 20%;
 
+}
+
+/* =================== RESPONSIVIDADE =================== */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        padding: 10px;
+        position: relative;
+    }
+
+    .sidebar-top {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .sidebar-top img {
+        width: 120px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .sidebar-top div {
+        margin: 0;
+        padding: 0;
+    }
+
+    .sidebar ul {
+        display: none;
+    }
+
+    .sidebar-bottom {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    #transaction-form {
+        flex-wrap: wrap;
+    }
+
+    #transaction-form input,
+    #transaction-form select {
+        width: 100% !important;
+    }
+
+    .card-add {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar-top div span {
+        display: none;
+    }
+
+    .sidebar-top img {
+        width: 100px;
+    }
+
+    .sidebar-bottom button.btn-logout {
+        padding: 5px 10px;
+    }
+
+    #balance-p {
+        font-size: 1.5rem;
+    }
+
+    #transaction-form i {
+        display: none;
+    }
+}
+
+/* Menu Mobile para Dashboard */
+.mobile-menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1000;
+        color: white;
+        font-size: 1.5rem;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .sidebar.active {
+        display: flex;
+        z-index: 999;
+        height: 100vh;
+        position: fixed;
+        flex-direction: column;
+    }
+
+    .sidebar.active .sidebar-top ul {
+        display: block;
+        margin-top: 20px;
+    }
 }

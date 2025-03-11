@@ -32,9 +32,17 @@ header{
     align-items: center;
 }
 
+.header-content-left img{
+    height: 2rem;
+}
+
 .header-content-left h1{
     font-weight: 800;
     color: #fff;
+
+    display: flex;
+    align-items: center;
+
 }
 
 .header-content-right{
@@ -123,3 +131,263 @@ nav ul li a:hover{
 
 /*===============================================================*/
 /*Seção de conteúdo*/
+
+.main {
+    width: 100%;
+    background-color: #ececff;
+
+}
+
+.main-content{
+    height: 100%;
+    width: 60%;
+    margin: 0 auto;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-content-left{
+    width: 50%;
+}
+
+.main-content-right{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.main-content-right img{
+    height: 20rem;
+    width: 20rem;
+    border-radius: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+}
+
+/*===============================================================*/
+/*Rodapé*/
+
+footer{
+    background-color: #757cff;
+}
+
+.footer-content{
+    height: 100%;
+    width: 70%;
+    padding-top: 1rem;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-content div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.footer-content p{
+    color: white;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+}
+
+.footer-links{
+    display: flex;
+    justify-content: space-between;
+    align-content: flex-start;
+}
+
+.footer-content h3{
+    color: white;
+    font-weight: 700;
+}
+
+.footer-content ul{
+    padding: 0;
+}
+
+.footer-content li{
+    list-style: none;
+    margin-top: 0.8rem;
+}
+
+.footer-content li a{
+    text-decoration: none;
+    color: white;
+}
+
+/* =================== RESPONSIVIDADE =================== */
+
+@media (max-width: 768px) {
+    /* Header */
+    .header-content {
+        width: 90%;
+    }
+    
+    nav ul li {
+        margin-right: 0.5rem;
+    }
+    
+    .header-content-right i {
+        margin-left: 2rem;
+    }
+
+    /* Banner */
+    .banner div h1 {
+        font-size: 3.5rem;
+        text-align: center;
+    }
+
+    .banner div p {
+        font-size: 1rem;
+    }
+
+    /* Main Content */
+    .main-content {
+        width: 80%;
+        flex-direction: column;
+    }
+
+    .main-content-left,
+    .main-content-right {
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-content-right img {
+        height: 15rem;
+        width: 15rem;
+        margin-top: 2rem;
+    }
+
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem 0;
+    }
+
+    .footer-links {
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Header */
+    nav ul {
+        display: none; /* Esconde a navegação em mobile */
+    }
+
+    .header-content-right i {
+        font-size: 1.5rem;
+    }
+
+    /* Banner */
+    .banner div h1 {
+        font-size: 2.5rem;
+        padding: 0 1rem;
+    }
+
+    .banner div p {
+        width: 90%;
+        font-size: 0.9rem;
+    }
+
+    /* Main Content */
+    .main-content {
+        width: 90%;
+    }
+
+    .main-content-right img {
+        height: 12rem;
+        width: 12rem;
+    }
+
+    /* Footer */
+    .footer-content {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-content div {
+        align-items: center;
+    }
+
+    .footer-links {
+        align-items: center;
+    }
+}
+
+/* Ajustes gerais para imagens */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Menu Mobile */
+.mobile-menu-icon {
+    display: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.user-icon {
+    margin-left: 2rem;
+}
+
+.mobile-menu {
+    display: none;
+    background-color: #757cff;
+    width: 100%;
+    position: absolute;
+    top: 4.5rem;
+    left: 0;
+    z-index: 1000;
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+.mobile-menu ul {
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.mobile-menu li {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .desktop-menu {
+        display: none;
+    }
+    
+    .mobile-menu-icon {
+        display: block;
+        margin-left: 2rem;
+    }
+
+    .user-icon {
+        order: 2;
+    }
+
+    .mobile-menu-icon {
+        order: 1;
+    }
+
+    .header-content-right {
+        gap: 1rem;
+    }
+}
