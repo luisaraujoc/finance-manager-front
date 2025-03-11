@@ -57,6 +57,10 @@ header{
     margin-left: 5rem;
 }
 
+.header-content-right a{
+    cursor: pointer;
+}
+
 nav ul{
     display: flex;
     justify-content: space-between;
@@ -105,7 +109,7 @@ nav ul li a:hover{
     flex-direction: column;
 }
 
-.banner img{
+.banner-background{
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -114,7 +118,7 @@ nav ul li a:hover{
     left: 0;
 }
 
-.banner div {
+.banner-container {
     width: 100%;
     height: 100%;
 
@@ -128,113 +132,127 @@ nav ul li a:hover{
     
 }
 
-.banner div h1{
-    font-weight: 700;
-    color: #757cff;
-    font-size: 5rem;
-}
-
-.banner div p{
+.banner-content{
     width: 80%;
-    font-weight: 400;
-    font-size: 1.2rem;
-    text-align: center;
-}
-
-/*===============================================================*/
-/*Seção de conteúdo*/
-
-.main {
-    width: 100%;
-    background-color: #ececff;
-
-}
-
-.main-content{
-    height: 100%;
-    width: 60%;
-    margin: 0 auto;
-    padding: 2rem 0;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
-.main-content-left{
-    width: 50%;
+.banner-content-left{
+    width: 60%;
+    padding-top: 10rem;
 }
 
-.main-content-right{
-    width: 50%;
+.banner-content-left button{
+    background-color: #757cff;
+    border: none;
+}
+
+.banner-content-left button:hover{
+    background-color: #25275c;
+}
+
+.banner-content-right{
+    width: 40%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    align-content: center;
 }
 
-.main-content-right img{
-    height: 20rem;
-    width: 20rem;
-    border-radius: 100%;
+.banner-content-right img{
+    height: 40rem;
+    width: 25rem;
     object-fit: cover;
     top: 0;
     left: 0;
 }
 
+.banner div h1{
+    font-weight: 700;
+    color: #2d2f68;
+    font-size: 4rem;
+}
+
+.banner div p{
+    width: 70%;
+    font-weight: 400;
+    font-size: 1.2rem;
+    text-align: left;
+}
+
+/*===============================================================*/
+/*Seção de conteúdo*/
+
+.main-content {
+    background-color: #ffffff;
+}
+
+.card {
+    transition: transform 0.3s ease;
+    border-radius: 15px !important;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.icon-wrapper {
+    background-color: #f0f2ff;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.btn-primary {
+    background-color: #757cff !important;
+    border-color: #757cff !important;
+    padding: 0.75rem 2rem;
+    border-radius: 10px;
+}
+
+.btn-primary:hover {
+    background-color: #25275c !important;
+    border-color: #25275c !important;
+}
+
 /*===============================================================*/
 /*Rodapé*/
 
-footer{
+footer {
     background-color: #757cff;
 }
 
-.footer-content{
-    height: 100%;
-    width: 70%;
-    padding-top: 1rem;
-    margin: 0 auto;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer-content div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-content: center;
-}
-
-.footer-content p{
-    color: white;
-    font-size: 0.8rem;
-    margin-top: 1rem;
-}
-
-.footer-links{
-    display: flex;
-    justify-content: space-between;
-    align-content: flex-start;
-}
-
-.footer-content h3{
-    color: white;
+footer h4,
+footer h5 {
     font-weight: 700;
 }
 
-.footer-content ul{
-    padding: 0;
+footer a:hover {
+    color: #757cff !important;
+    transition: color 0.3s ease;
 }
 
-.footer-content li{
-    list-style: none;
-    margin-top: 0.8rem;
+.border-top {
+    border-color: rgba(255,255,255,0.1) !important;
 }
 
-.footer-content li a{
-    text-decoration: none;
-    color: white;
+.footer-logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: first baseline;
+    margin-top: 2rem;
+}
+
+.footer-logo img {
+    height: 3rem;
+    margin-bottom: 1rem;
+}
+
+.footer-logo p{
+    width: 90%;
 }
 
 /* =================== RESPONSIVIDADE =================== */
@@ -401,5 +419,50 @@ img {
 
     .header-content-right {
         gap: 1rem;
+    }
+
+    /* Ajustes do Banner */
+    .banner {
+        height: 30rem; /* Reduz a altura do banner */
+    }
+
+    .banner-content-right {
+        display: none; /* Esconde a imagem do homem */
+    }
+
+    .banner-content-left {
+        width: 100% !important;
+        padding-top: 5rem;
+        text-align: center;
+    }
+
+    .banner-content-left p {
+        width: 100% !important;
+        text-align: center;
+    }
+
+    .banner-content-left button {
+        margin: 0 auto;
+    }
+
+    .main-content{
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Ajustes finos do Banner */
+    .banner {
+        height: 25rem;
+    }
+
+    .banner div h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .banner-content-left {
+        padding-top: 3rem;
     }
 }
