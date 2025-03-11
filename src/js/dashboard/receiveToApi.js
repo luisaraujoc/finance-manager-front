@@ -72,11 +72,18 @@ function carregarMovimentacoes() {
         tbody.appendChild(tr);
       });
 
-      // Atualizar saldo na tela
-      document.getElementById("balance-p").textContent = saldo.toLocaleString(
-        "pt-BR",
-        { style: "currency", currency: "BRL" }
-      );
+    
+      if (saldo === 0) {
+        document.getElementById("balance-p").textContent = "R$ 0,00";
+      } else {
+        // se saldo for positivo, adicionar o sinal de "+" e formatar como moeda
+        document.getElementById("balance-p").textContent = `${
+          saldo > 0 ? "+" : ""
+        }${saldo.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        })}`;
+      }
     })
     .catch((error) => {
       console.log("Erro ao buscar movimentações:", error);

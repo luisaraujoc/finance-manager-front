@@ -6,19 +6,21 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     height: 100%;
 }
 
 body {
     font-family: "Inter", sans-serif;
-    display: flex; /* Flexbox no body para ocupar toda a tela */
+    display: flex;
+    /* Flexbox no body para ocupar toda a tela */
 }
 
 /*===============================================================*/
 /* Sidebar */
 
-#icone-do-menu{
+#icone-do-menu {
     cursor: pointer;
     color: #000000;
     font-size: 2.5rem;
@@ -35,31 +37,32 @@ body {
     justify-content: space-between;
 }
 
-.sidebar ul{
-  list-style: none;
-  padding: 0;
+.sidebar ul {
+    list-style: none;
+    padding: 0;
 }
 
-.sidebar a{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: white;
-  text-decoration: none;
-  padding: 10px;
-  border-radius: 5px;
-  transition: background-color 0.2s;
+.sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
 }
 
-.sidebar a:hover{
-    background-color: rgba(255, 255, 255, 0.2); /* Sidebar com hover */
+.sidebar a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    /* Sidebar com hover */
 }
 
-.sidebar i{
-  font-size: 1.5rem;
+.sidebar i {
+    font-size: 1.5rem;
 }
 
-.sidebar-top div{
+.sidebar-top div {
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
@@ -68,22 +71,22 @@ body {
     padding: 10px;
 }
 
-.sidebar-top img{
+.sidebar-top img {
     padding: 1rem;
     margin-bottom: 1.5rem;
 }
 
-.sidebar-bottom{
+.sidebar-bottom {
     align-items: center;
 }
 
-.sidebar-bottom button{
+.sidebar-bottom button {
     background-color: #484dac;
     color: #fff;
     width: 100%;
 }
 
-.sidebar-bottom button:hover{
+.sidebar-bottom button:hover {
     background-color: #25275c;
 }
 
@@ -92,18 +95,19 @@ body {
 /* Container principal */
 .container {
     flex: 1;
-    padding: 20px; 
-    overflow-y: auto; /* Adiciona scroll vertical se o conteúdo for maior que a tela */
+    padding: 20px;
+    overflow-y: auto;
+    /* Adiciona scroll vertical se o conteúdo for maior que a tela */
 }
 
-#show-details{
+#show-details {
     background-color: #757cff;
 }
 
-.card{
-  margin-bottom: 1rem;
-  border-color: #757cff;
-  border-width: 0.13rem;
+.card {
+    margin-bottom: 1rem;
+    border-color: #757cff;
+    border-width: 0.13rem;
 }
 
 .card-add {
@@ -112,35 +116,191 @@ body {
     align-items: center;
 }
 
-#balance-p{
+#balance-p {
     font-size: 2rem;
     font-weight: 800;
 }
 
-#transaction-form{
+#transaction-form {
     display: flex;
     flex-direction: row;
     gap: 1rem;
 }
 
-#transaction-form i{
+#transaction-form i {
     color: #757cff;
     font-size: 1.5rem;
 }
 
-#transaction-form h5{
+#transaction-form h5 {
     width: 30%;
     margin-top: 0.4rem;
 }
 
-#transaction-form input{
+#transaction-form input {
     width: 50%;
 }
 
-#transaction-form select{
+#transaction-form select {
     width: 20%;
 
 }
+
+
+/* Card balance */
+
+/* entradas */
+.balance-card {
+    padding: 1rem;
+    background-color: #fffdf8;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    min-width: 500px;
+    border-radius: 8px;
+    border: 2px solid #757cff;
+}
+
+.title {
+    display: flex;
+    align-content: center;
+}
+
+.title span {
+    position: relative;
+    padding: 0.5rem;
+    background-color: #10B981;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 9999px;
+}
+
+.title span svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    height: 1rem;
+}
+
+.title-text {
+    margin-left: 0.5rem;
+    color: #374151;
+    font-size: 18px;
+}
+
+.percent {
+    margin-left: 0.5rem;
+    color: #02972f;
+    font-weight: 600;
+    display: flex;
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.data p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: #1F2937;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+.data .range {
+    position: relative;
+    background-color: #E5E7EB;
+    width: 100%;
+    height: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.data .range .fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #10B981;
+    width: 76%;
+    height: 100%;
+    border-radius: 0.25rem;
+}
+
+/* saidas */
+.title-saidas {
+    display: flex;
+    align-content: center;
+}
+
+.title-saidas span {
+    position: relative;
+    padding: 0.5rem;
+    background-color: #b91010;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 9999px;
+}
+
+.title-saidas span svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    height: 1rem;
+}
+
+.title-text-saidas {
+    margin-left: 0.5rem;
+    color: #374151;
+    font-size: 18px;
+}
+
+.percent-saidas {
+    margin-left: 0.5rem;
+    color: #02972f;
+    font-weight: 600;
+    display: flex;
+}
+
+.data-saidas {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.data-saidas p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: #1F2937;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+.data-saidas .range-saidas {
+    position: relative;
+    background-color: #E5E7EB;
+    width: 100%;
+    height: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.data-saidas .range-saidas .fill-saidas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #b91010;
+    width: 76%;
+    height: 100%;
+    border-radius: 0.25rem;
+}
+
+
 
 /* =================== RESPONSIVIDADE =================== */
 @media (max-width: 768px) {

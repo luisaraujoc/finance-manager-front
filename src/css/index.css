@@ -78,6 +78,18 @@ nav ul li a:hover{
     color: #25275c;
 }
 
+.link-decor {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    transition: ease-in 0.2s;
+}
+
+.link-decor:hover {
+    color: #25275c;
+    font-weight: 700;
+}
+
 /*===============================================================*/
 /*Banner*/
 
