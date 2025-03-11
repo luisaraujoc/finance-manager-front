@@ -41,7 +41,6 @@ function register() {
     .then((data) => {
       if (data.status === "success") {
         mostrarToast("Cadastro realizado com sucesso!", "success");
-        // redicionar para a página de login
         setTimeout(() => {
           window.location.href = "login.html";
         }, 2000);
