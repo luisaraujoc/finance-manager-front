@@ -5,6 +5,7 @@ const criarModal = document.getElementById("modal");
 const categorias = [];
 
 
+
 fetch(`http://localhost:3000/categorias/${user.id}`, {
   method: "GET",
 })

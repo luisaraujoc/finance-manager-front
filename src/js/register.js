@@ -1,4 +1,6 @@
- document.addEventListener("DOMContentLoaded", function () {
+import mostrarToast from "./toast.js";
+
+document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("register-form");
 
   if (form) {
