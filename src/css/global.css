@@ -90,7 +90,36 @@ body {
     background-color: #25275c;
 }
 
+/* Card de transações */
+.card {
+    margin-bottom: 1rem;
+    border-color: #757cff;
+    border-width: 0.13rem;
+}
 
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #757cff;
+    color: white;
+    padding: 1rem;
+    border-radius: 10px 10px 0 0;
+}
+
+.card-header h4 {
+    margin: 0;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-footer {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+}
 
 /* =================== RESPONSIVIDADE =================== */
 @media (max-width: 768px) {
